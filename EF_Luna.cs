@@ -217,13 +217,16 @@ namespace ExerciseEF
                 Console.WriteLine(name);
             }
             //F5-2
-            List<string> nameList = new List<string>() { "John", "Venkat", "Mary", "Victor", "Betty" };
-            nameList.Sort();
-            //this foreach loop just for testing...
-            foreach (string name in nameList)
+            void PrintKeysAndValues(String[] myKeys, int[] myValues)
             {
-                Console.WriteLine(name);
+                for (int i = 0; i < myKeys.Length; i++)
+                {
+                    Console.WriteLine("   {0,-10}: {1}", myKeys[i], myValues[i]);
+                }
             }
+            Array.Sort(names, scores);
+            Console.WriteLine("After sorting the entire Array in alphabetical order:");
+            PrintKeysAndValues(names, scores);
 
             //F6
             Console.WriteLine("Enter a matriculation number: ");
