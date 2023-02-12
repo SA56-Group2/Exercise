@@ -325,6 +325,25 @@ namespace Exercise_0210
             }
             for (int i = 0; i < name.Length; i++)
                 Console.WriteLine("{0}\t{1}",name[i],mark[i]);
+            
+            // new way
+            
+            Dictionary<string, int> studentdictionary = new Dictionary<string, int>();
+            studentdictionary.Add("John", 63);
+            studentdictionary.Add("Venkat", 29);
+            studentdictionary.Add("Mary", 75);
+            studentdictionary.Add("Victor", 82);
+            studentdictionary.Add("Betty", 55);
+            
+            var sortedDict1 = from s in studentdictionary orderby s.Key ascending select s;
+            var sortedDict2 = from s1 in studentdictionary orderby s1.Value descending select s1;
+
+            Console.WriteLine("-->Sort by name \n Name\tMark");
+            foreach (var stu in sortedDict1) Console.WriteLine("{0}\t{1}",stu.Key,stu.Value);
+
+            Console.WriteLine("-->Sort by mark \n Name\tMark");
+            foreach (var stu in sortedDict2) Console.WriteLine("{0}\t{1}",stu.Key,stu.Value);
+
 
 
         }
