@@ -347,49 +347,5 @@ namespace Quiz_slu
             }
             return nsize;
         }
-
-       public static void H7execise()
-       {
-           Console.WriteLine("Please enter the matrix A (by number splitted by space,by line splitted by /): ");
-           string numbers = Console.ReadLine();
-           string[] numberline = numbers.Split('/');
-           string[] numberletter = {};
-           int[,] aMatrix;
-           for (int i = 0; i < numberline.Length; i++)
-           {
-               numberletter = numberline[i].Split(' ');
-               aMatrix = new int[numberline.Length,numberletter.Length];
-               for (int j = 0; j < numberline.Length; j++)
-               {
-                   aMatrix[i, j] = int.Parse(numberletter[j]);
-               }
-           }
-           /*
-           Console.WriteLine("Please enter the matrix B (by number splitted by space,by line splitted by /) 【EACH LINE MUST HAVE {0} NUMBERS】: ",numberletter);
-           */
-           /*string bnumbers = Console.ReadLine();
-           string[] bnumberline = bnumbers.Split('/');
-           string[] bnumberletter = {};
-           int[,] bMatrix;
-           for (int i = 0; i < bnumberline.Length; i++)
-           {
-               bnumberletter = bnumberline[i].Split(' ');
-               bMatrix = new int[bnumberline.Length,bnumberletter.Length];
-               for (int j = 0; j < bnumberline.Length; j++)
-               {
-                   bMatrix[i, j] = Convert.ToInt32(bnumberletter[j]);
-               }
-           }*/
-
-           /*
-           int[,] cMatrix = MatrixMultiply(aMatrix, bMatrix);
-           */
-
-       }
-
-       /*public static int[,] MatrixMultiply(int[,] A, int[,] B)
-       {
-           int[,]
-       }*/
     }
 }
