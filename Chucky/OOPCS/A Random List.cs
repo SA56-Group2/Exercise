@@ -78,8 +78,4 @@ namespace Class
             return avg;
         }
     }
-}
-
-
-
-    
+}  
