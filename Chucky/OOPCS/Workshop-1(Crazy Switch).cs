@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 
 namespace Class
 {
@@ -6,7 +7,7 @@ namespace Class
     {
         public static void Main()
         {
-            lamp lamp1 = new lamp(false, 0);
+            lamp lamp1 = new lamp();
 
             int input;
             do
@@ -17,28 +18,25 @@ namespace Class
                 else if(input ==1) lamp1.turnOn();
             } while (input !=2);
             Console.WriteLine("The switch of your lamp is broken. Please buy a new one.");
-            
         }
     }
 
     class lamp
     {
-        public bool Lampswitch;
-        public string[] Color = { "red", "green", "blue" };
-        public int Count;
+        private bool Lampswitch;
+        private string[] Color;
+        private int Count;
 
-        public lamp(bool lampswitch, int count)
+        public lamp()
         {
-            this.Lampswitch = lampswitch;
-            this.Count = count;
+            this.Lampswitch = false;
+            this.Color = new[] { "red", "green","blue"};
+            this.Count = 0;
         }
         
         public void turnOn()
         {
-            if (Lampswitch)
-            {
-                Console.WriteLine("Your lamp is open.");
-            }
+            if (Lampswitch) Console.WriteLine("Your lamp is open.");
             else
             {
                 Console.Write("The Lamp is Turned on.");
@@ -52,10 +50,7 @@ namespace Class
         
         public void turnOff()
         {
-            if (Lampswitch == false)
-            {
-                Console.WriteLine("You lamp is closed, Please open the lamp.");
-            }
+            if (!Lampswitch) Console.WriteLine("You lamp is closed, Please open the lamp.");
             else
             {
                 Console.WriteLine("The Lamp is Turned off.");
@@ -67,11 +62,5 @@ namespace Class
         {
             Console.WriteLine("The color of the lamp is: {0}",color);
         }
-    }
-
-    
+    }  
 }
-
-
-
-    
