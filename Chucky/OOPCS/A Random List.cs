@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Class
@@ -15,8 +15,11 @@ namespace Class
             int numberL = int.Parse(Console.ReadLine());
             Console.Write("Please enter the highest value: ");
             int numberH = int.Parse(Console.ReadLine());
+            
             RandomList myrandom = new RandomList();
-            myrandom.seedValue = -9;
+            
+            myrandom.seedValue = -19;
+            
             int[] numberList = myrandom.Generate(numberV, numberL, numberH);
             myrandom.Show(numberList);
             myrandom.Mean(numberList);
@@ -26,27 +29,23 @@ namespace Class
     class RandomList
     {
         private int[] Arr;
-        private int Lowvalue;
-        private int Highvalue;
-        private int i;
+        private int Seedvalue;
         public int seedValue
         {
-            get { return i;}
-            set { i = Math.Abs(value) > 10 ? 5 : value; }
+            get { return Seedvalue;}
+            set { Seedvalue = Math.Abs(value) > 10 ? value%10 : value; }
         }
 
         public RandomList()
         {
             this.Arr = new int[] { 1, 2, 3, 4, 5 };
-            this.Lowvalue = 1;
-            this.Highvalue = 5;
-            this.i = 5;
+            this.Seedvalue = 5;
         }
 
         public int[] Generate(int n, int low, int high)
         {
             int[] numRan = new int[n];
-            Random myRandom = new Random(this.i);
+            Random myRandom = new Random(this.Seedvalue);
             for (int i = 0; i < n; i++)
             {
                 numRan[i] = myRandom.Next(low, high - 1);
@@ -78,4 +77,4 @@ namespace Class
             return avg;
         }
     }
-}  
+}
