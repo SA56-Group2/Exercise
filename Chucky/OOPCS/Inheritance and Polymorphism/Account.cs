@@ -90,7 +90,7 @@ namespace Class
         public virtual void CreditInterest()
         {
             double interest = CalculateInterest();
-            this.Deposit(balance + interest);
+            this.Deposit(interest);
         }
 
 
